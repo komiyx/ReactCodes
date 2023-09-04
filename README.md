@@ -1,6 +1,9 @@
 # ReactCodes
 Learning ReactJs
 
+React- roadmap 
 
-27/8/23 - Day 1
-28/8/23 - Day 2
+1. components
+2. redering
+3. Hooks
+4. Route

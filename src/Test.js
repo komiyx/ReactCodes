@@ -1,25 +1,30 @@
-import React, { useState } from 'react'
+import {useEffect, useState} from 'react'
 
-export default function Test(props) {
 
-    const [name,setname] = useState();
+export default function Test() 
+{
 
-    const handleSubmit =(event) =>
+    const [isOnline, setisOnline] = useState(true);
+
+    function handleOnline ()
     {
-        event.preventDefault();
-        console.log('Your name is ' + name)
+        setisOnline(true);
+    }
+
+    function handleOffline ()
+    {
+        setisOnline(false);
+    }
+
+    function handleSave()
+    {
+        console.log('Progress saved');
+
     }
 
     return (
-        <div>
-            <h1>{name}</h1>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Enter your name: 
-                    <input type='text' onChange={(e) => {setname(e.target.value)}}/>
-                </label>
-                <input type='submit'/>
-            </form>
-        </div>
+        
+        <button disabled={!isOnline} onClick={handleSave}>{isOnline ? 'save progress' : 'Reconnecting...'}</button>
     )
+
 }
